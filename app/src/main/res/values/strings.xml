@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">intive_training_app</string>
+    <string name="name_movie">intive_training_app</string>
+    <string name="movie_details">intive_training_app</string>
+    <string name="plot">intive_training_app</string>
+    <string name="rating">intive_training_app</string>
+
 </resources>

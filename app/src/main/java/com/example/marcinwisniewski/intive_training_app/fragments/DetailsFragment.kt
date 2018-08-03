@@ -11,11 +11,11 @@ import com.example.marcinwisniewski.intive_training_app.R
 import com.example.marcinwisniewski.intive_training_app.databinding.DetailsFragmentBinding
 
 
-class DetailsFragment : Fragment(){
+class DetailsFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding : DetailsFragmentBinding= DataBindingUtil.inflate(layoutInflater, R.layout.details_fragment, container, false)
+        val binding: DetailsFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.details_fragment, container, false)
 
         return binding.root
 
