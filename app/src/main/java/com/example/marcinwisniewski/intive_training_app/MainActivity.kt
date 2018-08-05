@@ -1,9 +1,8 @@
 package com.example.marcinwisniewski.intive_training_app
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import android.support.v4.app.ListFragment
+import com.example.marcinwisniewski.intive_training_app.fragments.ListFragment
 
 class MainActivity : FragmentActivity() {
 

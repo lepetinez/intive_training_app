@@ -1,11 +1,11 @@
 package com.example.marcinwisniewski.intive_training_app.model
 
-class Movie {
+class Movie(val title: String) {
 
-    var id : Int = 0
-    var title : String? = null
-    var year : String? = null
-    var genre : String? = null
-    var poster : String? = null
+    //var id : Int = 0
+    //var title
+    //var year : String? = null
+    //var genre : String? = null
+    //var poster : String? = null
 
 }
