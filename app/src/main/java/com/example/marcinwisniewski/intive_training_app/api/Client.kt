@@ -5,9 +5,8 @@ import retrofit2.Retrofit
 class Client {
 
     companion object {
-        const val BASE_URL = "http://api.themoviedb.org/3/"
-        val retrofit : Retrofit? = null
-        //fun getClient : Retrofit
+        const val BASE_URL = "https://raw.githubusercontent.com"
+        const val BASE_URL_2= "https://api.themoviedb.org"
     }
 
 }
