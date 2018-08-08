@@ -1,5 +1,3 @@
 package com.example.marcinwisniewski.intivetrainingapp.model
 
-class MovieResponse {
-    var results: List<Movie>? = null
-}
+data class MovieResponse(var results: List<Movie>?)

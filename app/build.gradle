@@ -31,6 +31,11 @@ ext {
     junitVersion = '4.12'
     picassoVersion = '2.71828'
     lifecycleVersion = '1.1.1'
+    rxjavaVersion = '2.1.9'
+    rxandroidVersion = '2.0.2'
+    runnerVersion = '1.0.2'
+    constraintlayoutVersion = '1.1.2'
+    espressocoreVersion = '3.0.2'
 }
 
 dependencies {
@@ -38,16 +43,16 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     //noinspection GradleCompatible
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation "com.android.support.constraint:constraint-layout:$constraintlayoutVersion"
     testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "com.android.support.test:runner:$runnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressocoreVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
     implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
     implementation "com.android.support:cardview-v7:$supportLibraryVersion"
     implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
