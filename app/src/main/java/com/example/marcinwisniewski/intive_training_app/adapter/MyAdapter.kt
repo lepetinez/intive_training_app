@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.marcinwisniewski.intive_training_app.databinding.SingleItemBinding
 import com.example.marcinwisniewski.intive_training_app.model.Movie
-import com.example.marcinwisniewski.intive_training_app.vievmodel.ListViewModel
+import com.example.marcinwisniewski.intive_training_app.vievmodel.SingleItemViewModel
 
 class MyAdapter() : RecyclerView.Adapter<MyAdapter.BindingHolder>() {
     lateinit var listener: OnItemClickListener
-    private val movies :MutableList<Movie> = mutableListOf()
+    private val movies: MutableList<Movie> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
-        setOnItemClickListener(listener)
+       // setOnItemClickListener(listener)
         val layoutInflater = LayoutInflater.from(parent!!.context)
         val binding = SingleItemBinding.inflate(layoutInflater, parent, false)
         return BindingHolder(binding)
@@ -20,10 +20,10 @@ class MyAdapter() : RecyclerView.Adapter<MyAdapter.BindingHolder>() {
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val data = movies[position]
-        holder.binding.setMovie(data)
-        holder.binding.originalLinearLayout.setOnClickListener {
-            listener.onClick(it, data)
-        }
+        holder.binding.singleItemViewModel = SingleItemViewModel(data)
+       // holder.binding.originalLinearLayout.setOnClickListener {
+       //     listener.onClick(it, data)
+        // }
     }
 
     override fun getItemCount(): Int {
@@ -35,10 +35,10 @@ class MyAdapter() : RecyclerView.Adapter<MyAdapter.BindingHolder>() {
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.listener = listener
+        // this.listener = listener
     }
 
-    fun setMovies (data:List<Movie>){
+    fun setMovies(data: List<Movie>) {
         movies.addAll(data)
         notifyDataSetChanged()
     }

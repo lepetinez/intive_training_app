@@ -10,8 +10,7 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer,  ListFragment())
+                .replace(R.id.fragmentContainer, ListFragment())
                 .commit()
-
     }
 }
