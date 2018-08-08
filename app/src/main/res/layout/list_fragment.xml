@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
         <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.example.marcinwisniewski.intivetrainingapp.viewmodel.ListViewModel" />
     </data>
-
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </android.support.v7.widget.RecyclerView>
-
     </android.support.constraint.ConstraintLayout>
-
 </layout>
