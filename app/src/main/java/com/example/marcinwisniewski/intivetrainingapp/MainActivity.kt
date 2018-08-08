@@ -1,11 +1,10 @@
-package com.example.marcinwisniewski.intive_training_app
+package com.example.marcinwisniewski.intivetrainingapp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marcinwisniewski.intive_training_app.view.ListFragment
+import android.support.v7.app.AppCompatActivity
+import com.example.marcinwisniewski.intivetrainingapp.view.ListFragment
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

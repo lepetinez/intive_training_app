@@ -2,19 +2,15 @@
 <layout>
 
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="viewModel"
-            type="com.example.marcinwisniewski.intive_training_app.viewmodel.DetailsViewModel" />
-
+            type="com.example.marcinwisniewski.intivetrainingapp.viewmodel.DetailsViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </android.support.constraint.ConstraintLayout>
 
 </layout>
