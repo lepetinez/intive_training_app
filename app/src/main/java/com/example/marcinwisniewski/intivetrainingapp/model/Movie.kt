@@ -1,3 +1,3 @@
 package com.example.marcinwisniewski.intivetrainingapp.model
 
-data class Movie(var id: Int, var title: String, var year: String, var poster: String)
+data class Movie(val id: Int, val title: String, val year: String, val poster: String)
