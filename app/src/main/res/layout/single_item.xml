@@ -9,7 +9,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/original_linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{(v) -> singleItemViewModel.showMovieDetails(singleItemViewModel.movie)}">
 
         <ImageView
             android:id="@+id/imageView"
@@ -23,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:poster="@{singleItemViewModel.poster}"
+            app:poster="@{singleItemViewModel.movie.poster}"
             app:srcCompat="@android:drawable/btn_dialog" />
 
         <TextView
@@ -36,7 +37,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:padding="4dp"
-            android:text="@{singleItemViewModel.title}"
+            android:text="@{singleItemViewModel.movie.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +52,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:padding="4dp"
-            android:text="@{singleItemViewModel.year}"
+            android:text="@{singleItemViewModel.movie.year}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/titleTextView" />

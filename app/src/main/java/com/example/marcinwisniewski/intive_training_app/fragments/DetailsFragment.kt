@@ -8,11 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.marcinwisniewski.intive_training_app.R
 import com.example.marcinwisniewski.intive_training_app.databinding.DetailsFragmentBinding
+import com.example.marcinwisniewski.intive_training_app.model.Movie
 
 class DetailsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: DetailsFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.details_fragment, container, false)
+        val bundle = arguments
+        val obj = bundle!!.getSerializable("choosenMovie") as Movie
+
+
+
         return binding.root
     }
 }

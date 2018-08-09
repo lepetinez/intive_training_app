@@ -1,5 +1,7 @@
 package com.example.marcinwisniewski.intive_training_app.adapter
 
+import android.content.Context
+import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +10,8 @@ import com.example.marcinwisniewski.intive_training_app.databinding.SingleItemBi
 import com.example.marcinwisniewski.intive_training_app.model.Movie
 import com.example.marcinwisniewski.intive_training_app.vievmodel.SingleItemViewModel
 
-class MyAdapter() : RecyclerView.Adapter<MyAdapter.BindingHolder>() {
+class MyAdapter(val fragmentActivity: FragmentActivity?) : RecyclerView.Adapter<MyAdapter.BindingHolder>() {
+
     lateinit var listener: OnItemClickListener
     private val movies: MutableList<Movie> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
@@ -20,7 +23,7 @@ class MyAdapter() : RecyclerView.Adapter<MyAdapter.BindingHolder>() {
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val data = movies[position]
-        holder.binding.singleItemViewModel = SingleItemViewModel(data)
+        holder.binding.singleItemViewModel = SingleItemViewModel(data,fragmentActivity)
        // holder.binding.originalLinearLayout.setOnClickListener {
        //     listener.onClick(it, data)
         // }

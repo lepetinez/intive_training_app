@@ -18,10 +18,5 @@ class ListViewModel(fragmentActivity2: FragmentActivity?) : ViewModel() {
         return MovieProvider.movieProvider.getMoviesResponse()
     }
 
-    fun showMovieDetails() {
-        fragmentActivity?.supportFragmentManager!!.beginTransaction()
-                .replace(R.id.fragmentContainer, DetailsFragment())
-                .addToBackStack(null)
-                .commit()
-    }
+
 }

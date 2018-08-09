@@ -1,11 +1,21 @@
 package com.example.marcinwisniewski.intive_training_app.vievmodel
 
+import android.annotation.SuppressLint
 import android.arch.lifecycle.ViewModel
+import com.example.marcinwisniewski.intive_training_app.R
+import com.example.marcinwisniewski.intive_training_app.fragments.DetailsFragment
 import com.example.marcinwisniewski.intive_training_app.model.Movie
+import android.support.v4.app.FragmentActivity
+import android.os.Bundle
 
-class SingleItemViewModel(movie: Movie) : ViewModel() {
 
+
+
+data class SingleItemViewModel(val movie: Movie, @field:SuppressLint("StaticFieldLeak") private val fragmentActivity: FragmentActivity?) : ViewModel() {
+/*
     private val movie: Movie? = movie
+    @SuppressLint("StaticFieldLeak")
+
 
     fun getTitle(): String? {
         if (movie != null) {
@@ -30,4 +40,19 @@ class SingleItemViewModel(movie: Movie) : ViewModel() {
             return "No Year"
         }
     }
+    fun getMovie():Movie?{
+        return movie
+    }
+*/
+    fun showMovieDetails(movie:Movie) {
+        val detailsFragment= DetailsFragment()
+        val bundle = Bundle()
+        bundle.putSerializable("choosenMovie", movie)
+        detailsFragment.arguments = bundle
+        fragmentActivity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, DetailsFragment())
+                .commit()
+    }
+
+
 }

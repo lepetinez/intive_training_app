@@ -25,14 +25,13 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = mLayoutManager
         val ListViewModel = ListViewModel(this.activity)
         binding.viewModel = ListViewModel
-        val listAdapter = MyAdapter()
+        val listAdapter = MyAdapter(activity)
         binding.root.recycler_list.adapter = listAdapter
         binding.viewModel!!.getMovies()
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    var movieResponse: MovieResponse = it
                     listAdapter.setMovies(it.data!!)
                 }, {
                 })
