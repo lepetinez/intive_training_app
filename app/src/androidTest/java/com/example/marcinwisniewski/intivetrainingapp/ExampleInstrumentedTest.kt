@@ -1,4 +1,4 @@
-package com.example.marcinwisniewski.intive_training_app
+package com.example.marcinwisniewski.intivetrainingapp
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
