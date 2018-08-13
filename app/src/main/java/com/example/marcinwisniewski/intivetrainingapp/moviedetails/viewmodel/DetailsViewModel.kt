@@ -1,4 +1,4 @@
-package com.example.marcinwisniewski.intivetrainingapp.viewmodel
+package com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel
 
 import android.arch.lifecycle.ViewModel
 

@@ -4,7 +4,7 @@
         <import type="android.view.View" />
         <variable
             name="viewModel"
-            type="com.example.marcinwisniewski.intivetrainingapp.viewmodel.DetailsViewModel" />
+            type="com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.DetailsViewModel" />
     </data>
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
