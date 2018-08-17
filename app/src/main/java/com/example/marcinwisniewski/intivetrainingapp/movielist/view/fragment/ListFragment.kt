@@ -16,19 +16,24 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListVi
 import kotlinx.android.synthetic.main.list_fragment.view.*
 
 class ListFragment : Fragment() {
+    private lateinit var listBinding: ListFragmentBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val listBinding: ListFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
+        listBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
         listBinding.viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
+        initAndObserveList()
+        return listBinding.root
+    }
+
+    private fun initAndObserveList() {
         val recyclerView = listBinding.root.recycler_list
         recyclerView.layoutManager = LinearLayoutManager(context)
         val listAdapter = MovieListAdapter()
         listBinding.root.recycler_list.adapter = listAdapter
-        //TO DO : try to avoid observing list in fragment
+        // TO DO : try to avoid observing list in fragment
         listBinding.viewModel?.getMovies()?.observe(this, Observer {
             if (it != null) {
                 listAdapter.setMovies(it)
             }
         })
-        return listBinding.root
     }
 }
