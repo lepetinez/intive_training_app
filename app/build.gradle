@@ -37,6 +37,7 @@ ext {
     constraintlayoutVersion = '1.1.2'
     espressocoreVersion = '3.0.2'
     navVersion = '1.0.0-alpha05'
+    dagger_version = '2.17'
 }
 
 dependencies {
@@ -58,4 +59,9 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
     implementation "android.arch.navigation:navigation-fragment-ktx:$navVersion"
     implementation "android.arch.navigation:navigation-ui-ktx:$navVersion"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 }
