@@ -1,6 +1,7 @@
 package com.example.marcinwisniewski.intivetrainingapp.dagger.dagger.module
 
 import com.example.marcinwisniewski.intivetrainingapp.network.MovieService
+import dagger.Module
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -9,6 +10,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 const val BASE_URL = "https://raw.githubusercontent.com"
 
+@Module
 class NetworkModule {
     @Provides
     @Singleton
