@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,18 +20,18 @@ import javax.inject.Inject
 class ListFragment : Fragment() {
     private lateinit var listBinding: ListFragmentBinding
     @Inject
-    private lateinit var listviewModelFactory: ListViewModelFactory
+    lateinit var listViewModelFactory: ListViewModelFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         listBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
-        listBinding.viewModel = ViewModelProviders.of(this,listviewModelFactory).get(ListViewModel::class.java)
+        listBinding.viewModel = ViewModelProviders.of(this,listViewModelFactory).get(ListViewModel::class.java)
         initAndObserveList()
         return listBinding.root
     }
 
     private fun initAndObserveList() {
         val recyclerView = listBinding.root.recycler_list
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(context) as RecyclerView.LayoutManager?
         val listAdapter = MovieListAdapter()
         listBinding.root.recycler_list.adapter = listAdapter
         // TO DO : try to avoid observing list in fragment

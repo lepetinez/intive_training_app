@@ -14,6 +14,6 @@ class AppModule(val app: App) {
     fun provideApplication(): App = app
 
     @Provides
-    fun provideCryptocurrenciesViewModelFactory(
+    fun provideListViewModelFactory(
             factory: ListViewModelFactory): ViewModelProvider.Factory = factory
 }
