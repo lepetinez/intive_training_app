@@ -9,6 +9,7 @@ import io.reactivex.schedulers.Schedulers
 
 class ListViewModel : ViewModel() {
     fun getMovies(): MutableLiveData<List<Movie>> {
+        // TODO: create handle error mechanism
         val moviesList = MutableLiveData<List<Movie>>()
         MovieProvider.movieProvider.getMoviesResponse()
                 .subscribeOn(Schedulers.io())
