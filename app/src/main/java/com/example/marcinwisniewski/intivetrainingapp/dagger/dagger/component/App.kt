@@ -5,8 +5,8 @@ import android.app.Application
 import com.example.marcinwisniewski.intivetrainingapp.dagger.dagger.module.AppModule
 import com.example.marcinwisniewski.intivetrainingapp.dagger.dagger.module.NetworkModule
 
-class App : Application(), HasActivity {
-     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+class App : Application() {
+     //lateinit var activityInjector: DispatchingAndroidInjector<Activity>
     override fun onCreate() {
         super.onCreate()
         DaggerNetworkComponent.builder()
