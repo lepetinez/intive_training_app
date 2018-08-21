@@ -1,6 +1,8 @@
 package com.example.marcinwisniewski.intivetrainingapp.movielist.view.fragment
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -15,19 +17,21 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.view.adapter.Mov
 import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListViewModel
 import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListViewModelFactory
 import dagger.android.AndroidInjection
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.list_fragment.view.*
 import javax.inject.Inject
 
-class ListFragment : Fragment() {
+class ListFragment : DaggerFragment() {
     private lateinit var listBinding: ListFragmentBinding
-    //@Inject
-    //lateinit var listViewModelFactory: ListViewModelFactory
+    @Inject
+    lateinit var listViewModelFactory: ListViewModelFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        //AndroidInjection.inject(this.activity)
         listBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
-        //listBinding.viewModel = ViewModelProviders.of(this,listViewModelFactory).get(ListViewModel::class.java)
-        //initAndObserveList()
+        listBinding.viewModel = ViewModelProviders.of(this,listViewModelFactory).get(ListViewModel::class.java)
+        initAndObserveList()
         return listBinding.root
     }
 
@@ -37,10 +41,16 @@ class ListFragment : Fragment() {
         val listAdapter = MovieListAdapter()
         listBinding.root.recycler_list.adapter = listAdapter
         // TO DO : try to avoid observing list in fragment
-//        listBinding.viewModel?.getMovies()?.observe(this, Observer {
-//            if (it != null) {
-//                listAdapter.setMovies(it)
-//            }
-//        })
+       listBinding.viewModel?.getMovies()?.observe(this, Observer {
+            if (it != null) {
+                listAdapter.setMovies(it)
+            }
+        })
+    }
+
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+
     }
 }
