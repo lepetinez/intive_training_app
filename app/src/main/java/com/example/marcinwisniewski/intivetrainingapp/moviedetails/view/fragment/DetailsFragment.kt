@@ -17,6 +17,7 @@ class DetailsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         detailsBinding = DataBindingUtil.inflate(layoutInflater, R.layout.details_fragment, container, false)
         detailsBinding.viewModel = ViewModelProviders.of(this).get(DetailsViewModel::class.java)
+        detailsBinding.setLifecycleOwner(this)
         observeCurrentMovie()
         return detailsBinding.root
     }

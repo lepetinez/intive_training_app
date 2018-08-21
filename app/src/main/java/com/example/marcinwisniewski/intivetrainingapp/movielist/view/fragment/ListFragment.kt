@@ -14,18 +14,20 @@ import com.example.marcinwisniewski.intivetrainingapp.databinding.ListFragmentBi
 import com.example.marcinwisniewski.intivetrainingapp.movielist.view.adapter.MovieListAdapter
 import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListViewModel
 import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListViewModelFactory
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.list_fragment.view.*
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
     private lateinit var listBinding: ListFragmentBinding
-    @Inject
-    lateinit var listViewModelFactory: ListViewModelFactory
+    //@Inject
+    //lateinit var listViewModelFactory: ListViewModelFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        //AndroidInjection.inject(this.activity)
         listBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
-        listBinding.viewModel = ViewModelProviders.of(this,listViewModelFactory).get(ListViewModel::class.java)
-        initAndObserveList()
+        //listBinding.viewModel = ViewModelProviders.of(this,listViewModelFactory).get(ListViewModel::class.java)
+        //initAndObserveList()
         return listBinding.root
     }
 
