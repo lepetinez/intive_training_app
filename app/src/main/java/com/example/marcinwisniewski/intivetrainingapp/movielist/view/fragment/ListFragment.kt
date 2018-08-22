@@ -21,9 +21,12 @@ import kotlinx.android.synthetic.main.list_fragment.view.*
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
+
     @Inject
     lateinit var listViewModelFactory: ViewModelFactory
+
     private lateinit var viewModel: ListViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val listBinding: ListFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
         return listBinding.root
@@ -36,7 +39,9 @@ class ListFragment : Fragment() {
         val listAdapter = MovieListAdapter()
         listBinding.root.recycler_list.adapter = listAdapter
         // TO DO : try to avoid observing list in fragment
-        viewModel.getMovies().observe(this, Observer { it ->
+        listBinding.setLifecycleOwner(this)
+        viewModel.getMovies()
+        viewModel.moviesList.observe(this, Observer { it ->
             it?.let {
                 listAdapter.setMovies(it)
             }

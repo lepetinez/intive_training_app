@@ -8,7 +8,9 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleItemViewModel
 
 class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.BindingHolder>() {
+
     private val movies: MutableList<Movie> = mutableListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ListRowBinding.inflate(layoutInflater, parent, false)
