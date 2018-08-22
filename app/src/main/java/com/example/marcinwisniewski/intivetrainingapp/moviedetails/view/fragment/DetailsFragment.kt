@@ -12,6 +12,7 @@ import com.example.marcinwisniewski.intivetrainingapp.databinding.DetailsFragmen
 import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.DetailsViewModel
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 
+// TODO: DI
 class DetailsFragment : Fragment() {
     private lateinit var viewModel: DetailsViewModel
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -21,6 +22,7 @@ class DetailsFragment : Fragment() {
         return detailsBinding.root
     }
 
+    // TODO: move viewmodel to onCreateView
     private fun fetchCurrentMovie() {
         viewModel = ViewModelProviders.of(this).get(DetailsViewModel::class.java)
         viewModel.fetchChoosenMovie(arguments?.getSerializable(getString(R.string.current_movie)) as Movie?)

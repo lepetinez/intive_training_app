@@ -8,6 +8,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class ListViewModel : ViewModel() {
+    // TODO: Dispose || schedulers
+    // TODO: Do not return the data to fragment
     fun getMovies(): MutableLiveData<List<Movie>> {
         // TODO: create handle error mechanism
         val moviesList = MutableLiveData<List<Movie>>()
@@ -17,6 +19,7 @@ class ListViewModel : ViewModel() {
                 .subscribe({
                     moviesList.value = it.data
                 }) {
+                    // TODO: Error
                 }
         return moviesList
     }

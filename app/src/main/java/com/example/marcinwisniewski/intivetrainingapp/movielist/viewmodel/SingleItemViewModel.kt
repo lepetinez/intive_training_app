@@ -6,6 +6,8 @@ import androidx.navigation.findNavController
 import com.example.marcinwisniewski.intivetrainingapp.R
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 
+// TODO: why data class
+// TODO: remove movie from constructor
 data class SingleItemViewModel(val movie: Movie) {
     fun showMovieDetails(movie: Movie, view: View) {
         val movieBundle = Bundle().apply{
