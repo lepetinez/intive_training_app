@@ -9,9 +9,9 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class ListViewModel @Inject constructor(private val movieRepository: MovieProvider) : ViewModel() {
-    fun getMovies(): MutableLiveData<List<Movie>> {
+    val moviesList = MutableLiveData<List<Movie>>()
+    fun getMovies() {
         // TODO: create handle error mechanism
-        val moviesList = MutableLiveData<List<Movie>>()
         movieRepository.getMoviesResponse()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -19,6 +19,5 @@ class ListViewModel @Inject constructor(private val movieRepository: MovieProvid
                     moviesList.value = it.data
                 }) {
                 }
-        return moviesList
     }
 }

@@ -24,9 +24,13 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.BindingHolder>() 
         return movies.size
     }
 
-    fun setMovies(data: List<Movie>) {
-        movies.clear()
-        movies.addAll(data)
+    fun setMovies(data: List<Movie>?) {
+        movies.run {
+            clear()
+            if (data != null) {
+                addAll<Movie>(data)
+            }
+        }
         notifyDataSetChanged()
     }
 

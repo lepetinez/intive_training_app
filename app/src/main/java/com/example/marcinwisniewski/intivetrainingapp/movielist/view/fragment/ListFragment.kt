@@ -31,6 +31,7 @@ class ListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val listBinding: ListFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
+        listBinding.setLifecycleOwner(this)
         return listBinding.root
     }
 
@@ -45,11 +46,6 @@ class ListFragment : Fragment() {
         listBinding.root.recycler_list.layoutManager = LinearLayoutManager(context)
         val listAdapter = MovieListAdapter()
         listBinding.root.recycler_list.adapter = listAdapter
-        // TO DO : try to avoid observing list in fragment
-        viewModel.getMovies().observe(this, Observer { it ->
-            it?.let {
-                listAdapter.setMovies(it)
-            }
-        })
+        viewModel.getMovies()
     }
 }

@@ -1,5 +1,6 @@
 package com.example.marcinwisniewski.intivetrainingapp.dagger.module
 
+import com.example.marcinwisniewski.intivetrainingapp.movielist.model.MovieProvider
 import com.example.marcinwisniewski.intivetrainingapp.network.MovieService
 import dagger.Module
 import dagger.Provides
@@ -20,5 +21,11 @@ class NetworkModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
         return retrofitInstance.create(MovieService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(movieService: MovieService): MovieProvider {
+        return MovieProvider(movieService)
     }
 }
