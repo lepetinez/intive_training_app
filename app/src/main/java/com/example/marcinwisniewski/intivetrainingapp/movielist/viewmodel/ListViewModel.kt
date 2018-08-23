@@ -6,12 +6,13 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.MovieProvider
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class ListViewModel : ViewModel() {
+class ListViewModel @Inject constructor(private val movieRepository: MovieProvider) : ViewModel() {
     fun getMovies(): MutableLiveData<List<Movie>> {
         // TODO: create handle error mechanism
         val moviesList = MutableLiveData<List<Movie>>()
-        MovieProvider.movieProvider.getMoviesResponse()
+        movieRepository.getMoviesResponse()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
