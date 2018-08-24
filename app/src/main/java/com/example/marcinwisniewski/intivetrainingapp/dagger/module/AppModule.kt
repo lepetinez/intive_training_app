@@ -7,6 +7,7 @@ import dagger.Provides
 
 @Module
 class AppModule {
+
     @Provides
     fun provideListViewModelFactory(factory: ListViewModelFactory): ViewModelProvider.Factory = factory
 }

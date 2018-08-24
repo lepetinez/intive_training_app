@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProvider
 import javax.inject.Inject
 
 class ListViewModelFactory @Inject constructor(private val listViewModel: ListViewModel) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ListViewModel::class.java)) {
             return listViewModel as T

@@ -9,6 +9,7 @@ import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
 class MovieApplication : Application(), HasSupportFragmentInjector {
+
     @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 

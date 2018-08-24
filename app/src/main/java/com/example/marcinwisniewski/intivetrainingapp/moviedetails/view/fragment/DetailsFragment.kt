@@ -13,16 +13,22 @@ import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.Det
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 
 class DetailsFragment : Fragment() {
+
     private lateinit var viewModel: DetailsViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val detailsBinding: DetailsFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.details_fragment, container, false)
-        fetchCurrentMovie()
+        viewModel = ViewModelProviders.of(this).get(DetailsViewModel::class.java)
         detailsBinding.viewModel = viewModel
         return detailsBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fetchCurrentMovie()
+    }
+
     private fun fetchCurrentMovie() {
-        viewModel = ViewModelProviders.of(this).get(DetailsViewModel::class.java)
         viewModel.fetchChoosenMovie(arguments?.getSerializable(getString(R.string.current_movie)) as Movie?)
     }
 }
