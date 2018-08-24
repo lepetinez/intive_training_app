@@ -1,6 +1,5 @@
 package com.example.marcinwisniewski.intivetrainingapp.movielist.view.fragment
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.databinding.DataBindingUtil
@@ -21,9 +20,11 @@ import kotlinx.android.synthetic.main.list_fragment.view.*
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
+
     @Inject
     lateinit var listViewModelFactory: ListViewModelFactory
     private lateinit var viewModel: ListViewModel
+
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
@@ -45,11 +46,6 @@ class ListFragment : Fragment() {
         listBinding.root.recycler_list.layoutManager = LinearLayoutManager(context)
         val listAdapter = MovieListAdapter()
         listBinding.root.recycler_list.adapter = listAdapter
-        // TO DO : try to avoid observing list in fragment
-        viewModel.getMovies().observe(this, Observer { it ->
-            it?.let {
-                listAdapter.setMovies(it)
-            }
-        })
+        viewModel.getMovies()
     }
 }

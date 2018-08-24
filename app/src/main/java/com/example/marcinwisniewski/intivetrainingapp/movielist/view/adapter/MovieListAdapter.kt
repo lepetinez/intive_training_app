@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.marcinwisniewski.intivetrainingapp.databinding.ListRowBinding
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
-import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleItemViewModel
+import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleMovieViewModel
 
 class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.BindingHolder>() {
     private val movies: MutableList<Movie> = mutableListOf()
@@ -17,7 +17,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.BindingHolder>() 
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val data = movies[position]
-        holder.binding.singleItemViewModel = SingleItemViewModel(data)
+        holder.binding.singleMovieViewModel = SingleMovieViewModel(data)
     }
 
     override fun getItemCount(): Int {

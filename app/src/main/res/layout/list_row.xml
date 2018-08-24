@@ -4,7 +4,7 @@
         <import type="android.view.View" />
         <variable
             name="singleItemViewModel"
-            type="com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleItemViewModel" />
+            type="com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleMovieViewModel" />
     </data>
         <LinearLayout
             android:id="@+id/original_linearLayout"
