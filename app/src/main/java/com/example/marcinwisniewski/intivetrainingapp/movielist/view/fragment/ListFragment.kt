@@ -16,17 +16,35 @@ import com.example.marcinwisniewski.intivetrainingapp.databinding.ListFragmentBi
 import com.example.marcinwisniewski.intivetrainingapp.main.ViewModelFactory
 import com.example.marcinwisniewski.intivetrainingapp.movielist.view.adapter.MovieListAdapter
 import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListViewModel
+<<<<<<< HEAD
+=======
+import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.ListViewModelFactory
+>>>>>>> 2c0b41d1fc2660f802120cb85dc8cc4bebf5f5dc
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.list_fragment.view.*
 import javax.inject.Inject
 
 class ListFragment : Fragment() {
     @Inject
+<<<<<<< HEAD
     lateinit var listViewModelFactory: ViewModelFactory
+=======
+    lateinit var listViewModelFactory: ListViewModelFactory
+>>>>>>> 2c0b41d1fc2660f802120cb85dc8cc4bebf5f5dc
     private lateinit var viewModel: ListViewModel
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val listBinding: ListFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.list_fragment, container, false)
         return listBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initAndObserveList(listBinding = getBinding<ListFragmentBinding>(view) as ListFragmentBinding)
     }
 
     private fun initAndObserveList(listBinding: ListFragmentBinding) {
