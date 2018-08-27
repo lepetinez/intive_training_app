@@ -1,67 +1,76 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View" />
         <variable
             name="singleMovieViewModel"
             type="com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleMovieViewModel" />
     </data>
-        <LinearLayout
-            android:id="@+id/original_linearLayout"
-            android:onClick="@{(v) -> singleMovieViewModel.showMovieDetails(v)}"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/listrow_height"
-            android:orientation="horizontal"
-            android:background="@color/colorPrimary"
-            android:layout_marginTop = "@dimen/list_row_margin_top"
-            android:padding = "@dimen/listrow_padding">
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="@dimen/image_width"
-                android:layout_height="match_parent"
-                app:poster="@{singleMovieViewModel.movie.poster}"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="@dimen/default_margin">
-                <TextView
-                    android:id="@+id/titleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:padding="@dimen/default_padding"
-                    android:text="@{singleMovieViewModel.movie.title}"
-                    android:textColor="@color/cardview_light_background"
-                    android:textSize="@dimen/listrow_title_size"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent" />
-                <TextView
-                    android:id="@+id/genreTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:padding="@dimen/default_padding"
-                    android:text="@{singleMovieViewModel.movie.genre}"
-                    android:textColor="@color/colorPrimaryLight" />
-                <TextView
-                    android:id="@+id/yearTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:layout_marginLeft="@dimen/default_margin"
-                    android:layout_marginTop="@dimen/default_margin"
-                    android:background="@drawable/year_background"
-                    android:drawableStart="@drawable/ic_date_range_black_24dp"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:padding="@dimen/default_padding"
-                    android:text="@{singleMovieViewModel.movie.year}"
-                    android:textColor="@color/cardview_light_background" />
-            </LinearLayout>
-        </LinearLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="@dimen/list_row_margin_top"
+        android:background="@color/colorPrimary"
+        android:onClick="@{(v) -> singleMovieViewModel.showMovieDetails(v)}">
+
+        <ImageView
+            android:id="@+id/movieListimageView"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:poster="@{singleMovieViewModel.movie.poster}"
+            tools:srcCompat="@tools:sample/avatars"
+            android:contentDescription="@string/imageDescription" />
+
+        <TextView
+            android:id="@+id/movieListTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:layout_marginTop="76dp"
+            android:padding="@dimen/default_padding"
+            android:scrollHorizontally="false"
+            android:text="@{singleMovieViewModel.movie.title}"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/movieListimageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/movieListGenreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:padding="@dimen/default_padding"
+            android:text="@{singleMovieViewModel.movie.genre}"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/movieListimageView"
+            app:layout_constraintTop_toBottomOf="@+id/movieListTitleTextView" />
+
+        <TextView
+            android:id="@+id/movieListYearTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/year_background"
+            android:drawableStart="@drawable/ic_date_range_black_24dp"
+            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+            android:padding="@dimen/default_padding"
+            android:text="@{singleMovieViewModel.movie.year}"
+            android:textColor="@color/cardview_light_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/movieListimageView" />
+    </android.support.constraint.ConstraintLayout>
 </layout>

@@ -3,6 +3,7 @@
     <string name="details_fragment">detailsFragment</string>
     <string name="current_movie">currentMovie</string>
     <string name="sample_movie_description">Sample movie description</string>
+    <string name="imageDescription">movie image from api</string>
     <!-- TODO: it will be changed to the real description after api change
     -->
 </resources>
