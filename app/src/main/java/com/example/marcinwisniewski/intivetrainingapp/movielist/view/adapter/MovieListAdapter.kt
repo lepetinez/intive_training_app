@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.marcinwisniewski.intivetrainingapp.databinding.ListRowBinding
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
-import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleItemViewModel
+import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.SingleMovieViewModel
 
 class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.BindingHolder>() {
+
     private val movies: MutableList<Movie> = mutableListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ListRowBinding.inflate(layoutInflater, parent, false)
@@ -17,16 +19,20 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.BindingHolder>() 
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val data = movies[position]
-        holder.binding.singleItemViewModel = SingleItemViewModel(data)
+        holder.binding.singleMovieViewModel = SingleMovieViewModel(data)
     }
 
     override fun getItemCount(): Int {
         return movies.size
     }
 
-    fun setMovies(data: List<Movie>) {
-        movies.clear()
-        movies.addAll(data)
+    fun setMovies(data: List<Movie>?) {
+        movies.run {
+            clear()
+            val addAll = data?.let { this.addAll<Movie>(it) }
+            addAll
+        }
+
         notifyDataSetChanged()
     }
 

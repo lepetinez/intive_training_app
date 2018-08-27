@@ -6,8 +6,9 @@ import javax.inject.Inject
 
 const val ALL_MOVIES_URL = "/filippella/Sample-API-Files/master/json/movies-api.json"
 
-class MovieProvider @Inject constructor(val movieService: MovieService) {
-    fun getMoviesResponse(): Single<MovieResponse> {
+class MovieRepository @Inject constructor(val movieService: MovieService) {
+
+    fun getMoviesData(): Single<MovieData> {
         return movieService.getMovies(ALL_MOVIES_URL)
     }
 }
