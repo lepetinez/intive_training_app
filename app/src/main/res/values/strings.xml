@@ -2,8 +2,10 @@
     <string name="app_name">intivetrainingapp</string>
     <string name="details_fragment">detailsFragment</string>
     <string name="current_movie">currentMovie</string>
-    <string name="sample_movie_description">Sample movie description</string>
+    <string name="sample_movie_description">Sample movie description Sample movie description Sample movie description
+    Sample movie description Sample movie description Sample movie description Sample movie description</string>
     <string name="imageDescription">movie image from api</string>
+    <string name="movie_details_image">Image for movieDetails screen</string>
     <!-- TODO: it will be changed to the real description after api change
     -->
 </resources>

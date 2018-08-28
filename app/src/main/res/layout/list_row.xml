@@ -43,6 +43,7 @@
             app:layout_constraintStart_toEndOf="@+id/movieListimageView"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--
         <TextView
             android:id="@+id/movieListGenreTextView"
             android:layout_width="wrap_content"
@@ -56,7 +57,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/movieListimageView"
             app:layout_constraintTop_toBottomOf="@+id/movieListTitleTextView" />
-
+-->
         <TextView
             android:id="@+id/movieListYearTextView"
             android:layout_width="wrap_content"

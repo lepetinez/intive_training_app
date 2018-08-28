@@ -6,8 +6,9 @@ import com.squareup.picasso.Picasso
 
 const val IMAGE_WIDTH = 200
 const val IMAGE_HEIGHT = 200
+const val IMAGE_PATH = "https://image.tmdb.org/t/p/w500"
 
 @BindingAdapter("bind:poster")
 fun ImageView.loadImage(url: String?) {
-    Picasso.get().load(url).resize(IMAGE_WIDTH, IMAGE_HEIGHT).into(this)
+    Picasso.get().load(IMAGE_PATH + url).resize(IMAGE_WIDTH, IMAGE_HEIGHT).into(this)
 }

@@ -1,3 +1,5 @@
 package com.example.marcinwisniewski.intivetrainingapp.movielist.model
 
-data class MovieData(val data: List<Movie>?)
+import com.google.gson.annotations.SerializedName
+
+data class MovieData(@SerializedName ("results")val results: List<Movie>?)
