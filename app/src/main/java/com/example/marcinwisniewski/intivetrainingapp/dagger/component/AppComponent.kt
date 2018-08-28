@@ -15,8 +15,10 @@ import javax.inject.Singleton
 @Component(modules = [NetworkModule::class, AndroidInjectionModule::class,
     FragmentModule::class, AndroidSupportInjectionModule::class, AppModule::class])
 interface AppComponent {
+
     @Component.Builder
     interface Builder {
+
         @BindsInstance
         fun application(application: Application): Builder
 
