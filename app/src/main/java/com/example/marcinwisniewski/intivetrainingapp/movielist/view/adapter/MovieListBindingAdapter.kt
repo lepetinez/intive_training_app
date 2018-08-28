@@ -8,8 +8,10 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 @BindingAdapter("movieList")
 fun RecyclerView.setMovieListToRecyclerview(movieList: LiveData<List<Movie>>) {
     if (adapter is MovieListAdapter) {
-        movieList.value?.let {
-            (adapter as MovieListAdapter).setMovies(it)
+        movieList.value.let {
+            if (it != null) {
+                (adapter as MovieListAdapter).setMovies(it)
+            }
         }
     }
 }
