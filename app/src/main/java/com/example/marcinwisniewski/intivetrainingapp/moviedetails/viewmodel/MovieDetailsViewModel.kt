@@ -10,13 +10,13 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MovieDetailsViewModel @Inject constructor(private val movieRepository: MovieRepository) : ViewModel() {
+class MovieDetailsViewModel @Inject constructor( private val movieRepository: MovieRepository): ViewModel() {
 
-    private val mutableMovie: MutableLiveData<Movie> = MutableLiveData()
+    private val mutableMovie: MutableLiveData <Movie> = MutableLiveData()
     val choosenMovie: LiveData<Movie> = mutableMovie
     private lateinit var movieDisposable: Disposable
 
-    fun fetchChoosenMovie(movieId: Int?) {
+    fun fetchChoosenMovie(movieId :Int?) {
 
         movieDisposable = (movieRepository.getSingleMovie(movieId)
                 .subscribeOn(Schedulers.io())

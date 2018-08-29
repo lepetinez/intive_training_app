@@ -18,8 +18,9 @@ import javax.inject.Inject
 class MovieDetailsFragment : Fragment() {
 
     @Inject
-    lateinit var movieDetailsViewModelFactory: MovieDetailsViewModelFactory
-    private lateinit var movieDetailsViewModel: MovieDetailsViewModel
+    lateinit var movieDetailsViewModel: MovieDetailsViewModel
+    //lateinit var movieDetailsViewModelFactory: MovieDetailsViewModelFactory
+
 
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
@@ -28,7 +29,7 @@ class MovieDetailsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val detailsBinding: MovieDetailsFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.movie_details_fragment, container, false)
-        movieDetailsViewModel = ViewModelProviders.of(this, movieDetailsViewModelFactory).get(MovieDetailsViewModel::class.java)
+        //movieDetailsViewModel = ViewModelProviders.of(this, movieDetailsViewModelFactory).get(MovieDetailsViewModel::class.java)
         detailsBinding.setLifecycleOwner(this)
         detailsBinding.movieDetailsViewModel = movieDetailsViewModel
         return detailsBinding.root

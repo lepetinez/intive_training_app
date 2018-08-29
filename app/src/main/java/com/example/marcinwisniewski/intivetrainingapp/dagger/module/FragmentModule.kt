@@ -8,9 +8,9 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class FragmentModule {
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector (modules = [AppModule::class])
     internal abstract fun contributeMovieListFragment(): MovieListFragment
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector (modules = [AppModule::class])
     internal abstract fun contributeMovieDetailsFragment(): MovieDetailsFragment
 }

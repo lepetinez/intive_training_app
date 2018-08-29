@@ -3,6 +3,7 @@ package com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.content.Context
 import android.util.Log
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.MovieRepository
@@ -11,7 +12,9 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MovieListViewModel @Inject constructor(private val movieRepository: MovieRepository) : ViewModel() {
+class MovieListViewModel @Inject constructor(private val movieRepository: MovieRepository
+                                            // private val context : Context)
+): ViewModel() {
 
     private val mutableMovieList: MutableLiveData<List<Movie>> = MutableLiveData()
     val movieList: LiveData<List<Movie>> = mutableMovieList
