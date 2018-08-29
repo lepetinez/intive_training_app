@@ -10,7 +10,7 @@ data class SingleMovieViewModel(val movie: Movie) {
 
     fun showMovieDetails(view: View) {
         val movieBundle = Bundle().apply {
-            putSerializable(view.context.getString(R.string.current_movie), movie)
+            movie.id?.let { putInt(view.context.getString(R.string.current_movie), it) }
         }
         view.findNavController().navigate(R.id.movieDetailsFragment, movieBundle)
     }

@@ -6,6 +6,10 @@
     Sample movie description Sample movie description Sample movie description Sample movie description</string>
     <string name="imageDescription">movie image from api</string>
     <string name="movie_details_image">Image for movieDetails screen</string>
+    <string name="votes">Votes:</string>
+    <string name="vote_average">Vote average:</string>
+    <string name="popularity">Popularity:</string>
+    <string name="release_date">Release date:</string>
     <!-- TODO: it will be changed to the real description after api change
     -->
 </resources>

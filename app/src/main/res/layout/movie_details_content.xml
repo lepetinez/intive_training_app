@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -17,42 +18,84 @@
 
         <ImageView
             android:id="@+id/movieImageView"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginLeft="44dp"
+            android:layout_width="@dimen/movie_details_image_width"
+            android:layout_height="@dimen/movie_details_image_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginBottom="88dp"
             android:contentDescription="@string/movie_details_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:poster="@{movieDetailsViewModel.choosenMovie.poster}"
             app:srcCompat="@android:drawable/btn_dialog" />
-        <!--
+
         <TextView
-            android:id="@+id/movieGenreTextView"
+            android:id="@+id/movieVoteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="2dp"
+            android:padding="@dimen/default_padding"
+            android:text="@string/vote_average"
+            android:textColor="@color/cardview_light_background"
+            android:textSize='19sp'
+            app:layout_constraintBottom_toTopOf="@+id/movieVoteAverageTextView"
+            app:layout_constraintStart_toEndOf="@+id/movieImageView" />
+
+        <TextView
+            android:id="@+id/movieVoteAverageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="4dp"
             android:padding="@dimen/default_padding"
-            android:text="@{movieDetailsViewModel.choosenMovie.genre}"
+            android:text="@{movieDetailsViewModel.choosenMovie.voteAverage}"
             android:textColor="@color/colorPrimaryLight"
-            android:textSize='19sp'
-            app:layout_constraintBottom_toTopOf="@+id/movieYearTextView"
+            android:textSize='18sp'
+            app:layout_constraintBottom_toTopOf="@+id/popularityTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/movieImageView" />
--->
+
         <TextView
-            android:id="@+id/movieYearTextView"
+            android:id="@+id/popularityTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginBottom="88dp"
+            android:layout_marginBottom="2dp"
+            android:padding="@dimen/default_padding"
+            android:text="@string/popularity"
+            android:textColor="@color/cardview_light_background"
+            android:textSize='19sp'
+            app:layout_constraintBottom_toTopOf="@+id/moviePopularityTextView"
+            app:layout_constraintStart_toEndOf="@+id/movieImageView" />
+
+        <TextView
+            android:id="@+id/moviePopularityTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="21dp"
+            android:padding="@dimen/default_padding"
+            android:text="@{movieDetailsViewModel.choosenMovie.popularity}"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize='18sp'
+            app:layout_constraintBottom_toTopOf="@+id/movieYearTextView"
+            app:layout_constraintStart_toEndOf="@+id/movieImageView" />
+
+        <TextView
+            android:id="@+id/movieYearTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginBottom="104dp"
             android:background="@drawable/year_background"
             android:drawableStart="@drawable/ic_date_range_black_24dp"
             android:drawableLeft="@drawable/ic_date_range_black_24dp"

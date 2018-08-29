@@ -9,7 +9,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-//const val BASE_URL = "https://raw.githubusercontent.com" working for old api !
+// const val BASE_URL = "https://raw.githubusercontent.com" working for old api !
 const val BASE_URL = "http://api.themoviedb.org/3/"
 @Module
 class NetworkModule {

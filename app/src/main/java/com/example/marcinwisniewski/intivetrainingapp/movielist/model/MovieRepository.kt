@@ -5,16 +5,13 @@ import com.example.marcinwisniewski.intivetrainingapp.network.MovieService
 import io.reactivex.Single
 import javax.inject.Inject
 
-const val ALL_MOVIES_URL = "/filippella/Sample-API-Files/master/json/movies-api.json"
-
-class MovieRepository @Inject constructor(val movieService: MovieService) {
-
-    //fun getMoviesData(): Single<MovieData> {
-       // return movieService.getMovies(ALL_MOVIES_URL)
-    //}
+class MovieRepository @Inject constructor(private val movieService: MovieService) {
 
     fun getMoviesData(): Single<MovieData> {
-         return movieService.getMovies(BuildConfig.THE_MOVIE_DB_API_TOKEN)
-        }
+        return movieService.getMovies(BuildConfig.THE_MOVIE_DB_API_TOKEN)
+    }
 
+    fun getSingleMovie(movieId: Int?): Single<Movie> {
+        return movieService.getMovieDetails(movieId, BuildConfig.THE_MOVIE_DB_API_TOKEN)
+    }
 }
