@@ -4,8 +4,8 @@
     <data>
         <import type="android.view.View" />
         <variable
-            name="viewModel"
-            type="com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.DetailsViewModel" />
+            name="movieDetailsViewModel"
+            type="com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.MovieDetailsViewModel" />
     </data>
     <android.support.design.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 app:expandedTitleMarginEnd="@dimen/title_margin_end"
                 app:expandedTitleMarginStart="@dimen/title_margin_start"
                 app:layout_scrollFlags="exitUntilCollapsed|scroll"
-                app:title="@{viewModel.choosenMovie.title}">
+                app:title="@{movieDetailsViewModel.choosenMovie.title}">
                 <android.support.v7.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
@@ -38,7 +38,7 @@
                         android:id="@+id/imageView"
                         android:layout_width="@dimen/movie_details_image_width"
                         android:layout_height="match_parent"
-                        app:poster="@{viewModel.choosenMovie.poster}"
+                        app:poster="@{movieDetailsViewModel.choosenMovie.poster}"
                         app:srcCompat="@android:drawable/btn_dialog" />
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/default_margin"
                             android:padding="@dimen/default_padding"
-                            android:text="@{viewModel.choosenMovie.title}"
+                            android:text="@{movieDetailsViewModel.choosenMovie.title}"
                             android:textSize="@dimen/title_text_size"
                             android:textStyle="bold"/>
                         <TextView
@@ -61,7 +61,7 @@
                             android:layout_margin="@dimen/default_margin"
                             android:padding="@dimen/default_padding"
                             android:textColor="@color/colorPrimaryLight"
-                            android:text="@{viewModel.choosenMovie.genre}"/>
+                            android:text="@{movieDetailsViewModel.choosenMovie.genre}"/>
                         <TextView
                             android:id="@+id/yearTextView"
                             android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                             android:drawableStart="@drawable/ic_date_range_black_24dp"
                             android:drawableLeft="@drawable/ic_date_range_black_24dp"
                             android:padding="@dimen/default_padding"
-                            android:text="@{viewModel.choosenMovie.year}"
+                            android:text="@{movieDetailsViewModel.choosenMovie.year}"
                             android:textStyle="bold"/>
                     </LinearLayout>
                 </LinearLayout>
