@@ -2,8 +2,6 @@ package com.example.marcinwisniewski.intivetrainingapp.dagger.module
 
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
-import com.example.marcinwisniewski.intivetrainingapp.main.MovieApplication
 import com.example.marcinwisniewski.intivetrainingapp.moviedetails.view.fragment.MovieDetailsFragment
 import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.MovieDetailsViewModel
 import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.MovieDetailsViewModelFactory
@@ -21,11 +19,6 @@ class AppModule {
 
     @Provides
     fun provideMovieDetailsViewModelFactory(factory: MovieDetailsViewModelFactory): ViewModelProvider.Factory = factory
-
-    @Provides
-    fun providesContext(application: MovieApplication): Context { // ask about it !!!!!!!
-        return application.applicationContext
-    }
 
     @Provides
     fun provideMovieDetailsViewModel(fragment: MovieDetailsFragment, factory: MovieDetailsViewModelFactory): MovieDetailsViewModel {
