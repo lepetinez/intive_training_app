@@ -13,7 +13,7 @@ import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.Mov
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 
 class MovieDetailsFragment : Fragment() {
-    //TODO: viewmodel by dependency injection
+    // TODO: viewmodel by dependency injection
     private lateinit var movieDetailsViewModel: MovieDetailsViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -25,8 +25,9 @@ class MovieDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //TODO avoid fetching data 2 times
-        fetchCurrentMovie()
+        if (savedInstanceState == null) {
+            fetchCurrentMovie()
+        }
     }
 
     private fun fetchCurrentMovie() {

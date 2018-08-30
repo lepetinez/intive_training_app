@@ -3,7 +3,6 @@ package com.example.marcinwisniewski.intivetrainingapp.movielist.view.fragment
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.databinding.DataBindingUtil
-import android.databinding.DataBindingUtil.getBinding
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -35,18 +34,24 @@ class MovieListFragment : Fragment() {
         movieListBinding.setLifecycleOwner(this)
         movieListViewModel = ViewModelProviders.of(this, movieListViewModelFactory).get(MovieListViewModel::class.java)
         movieListBinding.movieListViewModel = movieListViewModel
+        initList(movieListBinding)
         return movieListBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initAndObserveList(movieListBinding = getBinding<MovieListFragmentBinding>(view) as MovieListFragmentBinding)
+        if (savedInstanceState == null) {
+            fetchMovies()
+        }
     }
 
-    private fun initAndObserveList(movieListBinding: MovieListFragmentBinding) {
+    private fun initList(movieListBinding: MovieListFragmentBinding) {
         movieListBinding.root.recycler_list.layoutManager = LinearLayoutManager(context)
         val movieListAdapter = MovieListAdapter()
         movieListBinding.root.recycler_list.adapter = movieListAdapter
+    }
+
+    private fun fetchMovies() {
         movieListViewModel.getMovies()
     }
 }
