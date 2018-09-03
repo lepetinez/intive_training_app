@@ -32,8 +32,9 @@ class MovieDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // TODO avoid fetching data 2 times
-        fetchCurrentMovie()
+        if (savedInstanceState == null) {
+            fetchCurrentMovie()
+        }
     }
 
     private fun fetchCurrentMovie() {

@@ -9,6 +9,6 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 fun RecyclerView.setMovieListToRecyclerview(movieList: LiveData<List<Movie>>) {
     movieList.value?.let {
         (adapter as MovieListAdapter).setMovies(it)
-        //TODO avoid value?
+        // TODO avoid value?
     }
 }

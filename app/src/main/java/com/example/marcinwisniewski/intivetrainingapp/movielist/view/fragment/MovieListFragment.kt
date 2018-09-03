@@ -2,7 +2,6 @@ package com.example.marcinwisniewski.intivetrainingapp.movielist.view.fragment
 
 import android.content.Context
 import android.databinding.DataBindingUtil
-import android.databinding.DataBindingUtil.getBinding
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -31,19 +30,24 @@ class MovieListFragment : Fragment() {
         val movieListBinding: MovieListFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.movie_list_fragment, container, false)
         movieListBinding.setLifecycleOwner(this)
         movieListBinding.movieListViewModel = movieListViewModel
+        initList(movieListBinding)
         return movieListBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // TODO avoid fetching data 2 times
-        initAndObserveList(movieListBinding = getBinding<MovieListFragmentBinding>(view) as MovieListFragmentBinding)
+        if (savedInstanceState == null) {
+            fetchMovies()
+        }
     }
 
-    private fun initAndObserveList(movieListBinding: MovieListFragmentBinding) {
+    private fun initList(movieListBinding: MovieListFragmentBinding) {
         movieListBinding.root.recycler_list.layoutManager = LinearLayoutManager(context)
         val movieListAdapter = MovieListAdapter()
         movieListBinding.root.recycler_list.adapter = movieListAdapter
+    }
+
+    private fun fetchMovies() {
         movieListViewModel.getMovies()
     }
 }
