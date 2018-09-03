@@ -3,6 +3,7 @@ package com.example.marcinwisniewski.intivetrainingapp
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.MovieDetailsViewModel
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
+import org.amshove.kluent.shouldBe
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -25,6 +26,6 @@ class MovieDetailsViewModelTest {
     @Test
     fun checkIfGetMoviesWorks() {
         movieDetailsViewModel.fetchChoosenMovie(movie)
-        assert(movieDetailsViewModel.choosenMovie.value == movie)
+        movieDetailsViewModel.choosenMovie.value shouldBe movie
     }
 }
