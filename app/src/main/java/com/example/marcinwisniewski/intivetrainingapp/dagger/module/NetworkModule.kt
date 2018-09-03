@@ -16,17 +16,22 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun getMovieService(): MovieService {
-        val retrofitInstance = Retrofit.Builder().baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
+    fun provideMovieRepository(movieService: MovieService): MovieRepository {
+        return MovieRepository(movieService)
+    }
+
+    @Provides
+    @Singleton
+    fun getMovieService(retrofitInstance: Retrofit): MovieService {
         return retrofitInstance.create(MovieService::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideMovieRepository(movieService: MovieService): MovieRepository {
-        return MovieRepository(movieService)
+    fun provideRetrofitInstance(): Retrofit {
+        return Retrofit.Builder().baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
     }
 }
