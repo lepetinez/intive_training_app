@@ -8,9 +8,8 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.model.MovieRepos
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
 
-class MovieListViewModel @Inject constructor(private val movieRepository: MovieRepository) : ViewModel() {
+class MovieListViewModel(private val movieRepository: MovieRepository) : ViewModel() {
 
     private val mutableMovieList: MutableLiveData<List<Movie>> = MutableLiveData()
     val movieList: LiveData<List<Movie>> = mutableMovieList
