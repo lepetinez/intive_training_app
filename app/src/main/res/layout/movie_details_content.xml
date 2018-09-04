@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="movieDetailsViewModel"
+            type="com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.MovieDetailsViewModel" />
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/movieImageView"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginBottom="88dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:poster="@{movieDetailsViewModel.choosenMovie.poster}"
+            app:srcCompat="@android:drawable/btn_dialog" />
+        <TextView
+            android:id="@+id/movieTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginTop="68dp"
+            android:padding="@dimen/default_padding"
+            android:text="@{movieDetailsViewModel.choosenMovie.title}"
+            android:textSize="@dimen/title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/movieImageView"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/movieGenreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:padding="@dimen/default_padding"
+            android:text="@{movieDetailsViewModel.choosenMovie.genre}"
+            android:textColor="@color/colorPrimaryLight"
+            app:layout_constraintStart_toEndOf="@+id/movieImageView"
+            app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView" />
+        <TextView
+            android:id="@+id/movieYearTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:background="@drawable/year_background"
+            android:drawableStart="@drawable/ic_date_range_black_24dp"
+            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+            android:padding="@dimen/default_padding"
+            android:text="@{movieDetailsViewModel.choosenMovie.year}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/movieImageView"
+            app:layout_constraintTop_toBottomOf="@+id/movieGenreTextView" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
