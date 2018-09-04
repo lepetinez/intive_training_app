@@ -7,8 +7,7 @@ import com.example.marcinwisniewski.intivetrainingapp.movielist.model.Movie
 
 @BindingAdapter("movieList")
 fun RecyclerView.setMovieListToRecyclerview(movieList: LiveData<List<Movie>>) {
-    movieList.value?.let {
-        (adapter as MovieListAdapter).setMovies(it)
-        // TODO avoid value?
+    movieList.value.let {
+        it?.let { it1 -> (adapter as MovieListAdapter).setMovies(it1) }
     }
 }

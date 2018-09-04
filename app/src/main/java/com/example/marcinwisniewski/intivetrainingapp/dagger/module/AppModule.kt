@@ -1,12 +1,6 @@
 package com.example.marcinwisniewski.intivetrainingapp.dagger.module
 
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import com.example.marcinwisniewski.intivetrainingapp.moviedetails.view.fragment.MovieDetailsFragment
-import com.example.marcinwisniewski.intivetrainingapp.moviedetails.viewmodel.MovieDetailsViewModel
-import com.example.marcinwisniewski.intivetrainingapp.movielist.view.fragment.MovieListFragment
-import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.MovieListViewModel
-import com.example.marcinwisniewski.intivetrainingapp.movielist.viewmodel.MovieListViewModelFactory
+import com.example.marcinwisniewski.intivetrainingapp.movielist.view.adapter.MovieListAdapter
 import dagger.Module
 import dagger.Provides
 
@@ -14,15 +8,7 @@ import dagger.Provides
 class AppModule {
 
     @Provides
-    fun provideMovieListViewModelFactory(factory: MovieListViewModelFactory): ViewModelProvider.Factory = factory
-
-    @Provides
-    fun provideMovieListViewModel(fragment: MovieListFragment, factory: MovieListViewModelFactory): MovieListViewModel {
-        return ViewModelProviders.of(fragment, factory).get(MovieListViewModel::class.java)
-    }
-
-    @Provides
-    fun provideMovieDetailsViewModel(fragment: MovieDetailsFragment): MovieDetailsViewModel {
-        return ViewModelProviders.of(fragment).get(MovieDetailsViewModel::class.java)
+    fun provideMovieListAdapter(): MovieListAdapter {
+        return MovieListAdapter()
     }
 }

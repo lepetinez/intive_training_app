@@ -1,4 +1,4 @@
-package com.example.marcinwisniewski.intivetrainingapp.dagger.module
+package com.example.marcinwisniewski.intivetrainingapp.network.di
 
 import com.example.marcinwisniewski.intivetrainingapp.movielist.model.MovieRepository
 import com.example.marcinwisniewski.intivetrainingapp.network.MovieService

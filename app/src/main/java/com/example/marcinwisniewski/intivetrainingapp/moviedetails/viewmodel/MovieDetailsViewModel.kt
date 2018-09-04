@@ -8,7 +8,7 @@ class MovieDetailsViewModel : ViewModel() {
 
     val choosenMovie: MutableLiveData<Movie> = MutableLiveData()
 
-    fun fetchChoosenMovie(choosenMovie: Movie?) {
+    fun fetchChoosenMovie(choosenMovie: Movie) {
         // TODO: after api change, this function will fetch real live data from the api (argument will be movie_ID)
         this.choosenMovie.value = choosenMovie
     }
