@@ -38,8 +38,8 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun fetchCurrentMovie() {
-        movieDetailsViewModel.fetchChoosenMovie(arguments?.let {
+        arguments?.let {
             it.getSerializable(getString(R.string.current_movie)) as Movie
-        })
+        }?.let { movieDetailsViewModel.fetchChoosenMovie(it) }
     }
 }

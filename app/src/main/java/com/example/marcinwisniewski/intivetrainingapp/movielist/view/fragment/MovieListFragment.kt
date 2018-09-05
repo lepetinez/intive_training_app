@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,8 @@ class MovieListFragment : Fragment() {
 
     @Inject
     lateinit var movieListViewModel: MovieListViewModel
+    @Inject
+    lateinit var movieListAdapter: MovieListAdapter
 
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
@@ -30,7 +33,7 @@ class MovieListFragment : Fragment() {
         val movieListBinding: MovieListFragmentBinding = DataBindingUtil.inflate(layoutInflater, R.layout.movie_list_fragment, container, false)
         movieListBinding.setLifecycleOwner(this)
         movieListBinding.movieListViewModel = movieListViewModel
-        initList(movieListBinding)
+        initList(movieListBinding.root.recycler_list)
         return movieListBinding.root
     }
 
@@ -41,10 +44,9 @@ class MovieListFragment : Fragment() {
         }
     }
 
-    private fun initList(movieListBinding: MovieListFragmentBinding) {
-        movieListBinding.root.recycler_list.layoutManager = LinearLayoutManager(context)
-        val movieListAdapter = MovieListAdapter()
-        movieListBinding.root.recycler_list.adapter = movieListAdapter
+    private fun initList(movieRecyclerList: RecyclerView) {
+        movieRecyclerList.layoutManager = LinearLayoutManager(context)
+        movieRecyclerList.adapter = movieListAdapter
     }
 
     private fun fetchMovies() {
